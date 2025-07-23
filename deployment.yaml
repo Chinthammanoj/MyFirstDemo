@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jpetstore-deployment
+  namespace: jpetstore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jpetstore
+  template:
+    metadata:
+      labels:
+        app: jpetstore
+    spec:
+      containers:
+      - name: jpetstore
+        image: tharak397/ciscodevops:2.0
+        ports:
+        - containerPort: 8080
